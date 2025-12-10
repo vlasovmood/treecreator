@@ -1,59 +1,52 @@
-# 🌳 **TreeCreator** 
+# TreeCreator
 
-Добро пожаловать в **TreeCreator** — мощное приложение, которое поможет вам легко конвертировать файлы в нужный формат и создать древо файлов!
+Welcome to **TreeCreator** --- a powerful application that helps you
+easily convert files into the desired format and generate a file tree!
 
----
+## How it works
 
-## 🎯 **Как это работает?**
+-   **Folder selection**: Specify the source folder containing the files
+    and the folder where the converted files will be saved.
+-   **Extension change**: You can change the extension of all files (for
+    example, to `.txt` or `.json`).
+-   **Optional: create `tree.json`**: The program can generate a JSON
+    file containing a tree-like structure of the files.
+-   **Progress tracking**: You can see the percentage of the conversion
+    process.
 
-- **📁 Выбор папок**: Укажите исходную папку с файлами и папку для сохранения конечных файлов.
-- **📜 Изменение расширений**: Вы можете изменить расширение всех файлов (например, на `.txt` или `.json`).
-- **🌲 Опционально: создание `tree.json`**: Программа может создать JSON-файл с древовидной структурой файлов.
-- **📊 Отслеживание прогресса**: Вы сможете видеть процент выполнения процесса конвертации.
+## URL scheme support
 
----
+-   **mainFolder** --- Select the main folder containing the files.
+-   **exportFolder** --- The destination folder, for example a GitHub
+    folder.
+-   **file** --- File extension (for example `.txt` or `.json`).
+-   **tree** --- Whether to create the `tree.json` file: yes/no.
 
-## 🌐 **Поддержка URL-схемы**
+**URL structure:**
 
-- **mainFolder** - Выбор основной папки с файлами.
-- **exportFolder** - Конечная папка, например папка GitHub.
-- **file** - Расширение (например, `.txt` или `.json`).
-- **tree** - Создавать ли файл tree.json? yes/no.
+    TreeCreator://mainFolder=[sourcePath]&exportFolder=[destinationPath]&file=[extension]&tree=[yes/no]
 
-**Структура URL следующая:**
-   ``bash
-TreeCreator://mainFolder=[sourcePath]&exportFolder=[destinationPath]&file=[extension]&tree=[yes/no]
-   ``
-  
-**Пример ссылки:**
-   ``bash
-TreeCreator://mainFolder=C:/input&exportFolder=C:/output&file=txt&tree=yes
-   ``
+**Example link:**
 
----
+    TreeCreator://mainFolder=C:/input&exportFolder=C:/output&file=txt&tree=yes
 
+## Registering the URL scheme in Windows
 
-## 🔧 **Регистрация URL-схемы в Windows**
-Откройте редактор реестра `(Win+R → regedit)`.
-Перейдите к `HKEY_CLASSES_ROOT`.
-Создайте новый ключ с именем `TreeCreator`.
-Внутри него создайте ключ shell, внутри него — ключ open, внутри — ключ command.
-Внутри ключа command создайте строковое значение (по умолчанию) с путем до приложения:   ``
+1.  Open Registry Editor (`Win+R → regedit`).
+2.  Navigate to `HKEY_CLASSES_ROOT`.
+3.  Create a new key named `TreeCreator`.
+4.  Inside it, create a key `shell`, then `open`, then `command`.
+5.  In the `command` key, create a string value (default) with the path
+    to the application:
+
+```
 "C:\Path\To\TreeCreator.exe" "%1"
-   ``
-   
----
+```
 
+## How to use
 
-## 🖥️ Пример работы программы
+Use `TreeCreator.exe` to track changes in files. Create a repository on
+GitHub and upload files there. `TreeCreator` helps quickly generate a
+file tree, and GitHub displays changes in files.
 
-![Пример работы программы](https://i.imgur.com/buuns8u.png)
-
----
-
-
-## 🎨 Как применять?
-
-Используйте `TreeCreator.exe` для отслеживания изменения в файлах. Создайте репозиторий в GitHub и выгружайте файлы в нее. `TreeCreator` поможет быстро создать древо файлов, а GitHub покажет изменения в файлах.
-
-[Установите сейчас](https://github.com/Paramert/TreeCreator/releases/)
+[Download](https://github.com/Paramert/TreeCreator/releases/)
